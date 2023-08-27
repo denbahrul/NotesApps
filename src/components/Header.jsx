@@ -2,7 +2,7 @@ import React from "react";
 
 function Header () {
     return (
-        <div className="header">
+        <div className="note-app__header">
             <h1>My Notes</h1>
         </div>
     )

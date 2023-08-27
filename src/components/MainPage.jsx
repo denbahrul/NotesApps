@@ -1,13 +1,17 @@
 import React from "react";
 import Header from "./Header";
+import FormInput from "./FormInput";
+import NoteList from "./NotesList";
 
 function MainPage() {
     return (
         <div>
             <Header/>
-            <p>Form Input</p>
-            <p>Catatan Aktif</p>
-            <p>Arsip Catatan</p>
+            <div className="note-app__body">
+                <FormInput/>
+                <NoteList/>
+                <p>Arsip Catatan</p>
+            </div>
         </div>
     )
 }
