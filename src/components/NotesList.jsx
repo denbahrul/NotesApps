@@ -1,10 +1,13 @@
 import React from "react";
 import NoteItem from "./NoteItem";
+import { getInitialData } from "../utils/index";
 
 function NoteList() {
+    const notes = getInitialData();
+
     return(
         <div className="notes-list">
-            <NoteItem/>
+            {notes.map((note) => <NoteItem key={note.id} {...note}/> )}
         </div>
     )
 }
