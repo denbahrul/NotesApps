@@ -12,7 +12,7 @@ class FormInput extends React.Component {
 
         this.onTitleChangeHandler = this.onTitleChangeHandler.bind(this);
         this.onBodyChangeHandler = this.onBodyChangeHandler.bind(this);
-        this.onAddNoteEventHandler = this.onAddNoteEventHandler.bind(this);
+        this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
     }
 
     onTitleChangeHandler(event) {
@@ -36,7 +36,7 @@ class FormInput extends React.Component {
         });
     }
 
-    onAddNoteEventHandler(event) {
+    onSubmitEventHandler(event) {
         event.preventDefault();
         this.props.addNotes(this.state);
     }
@@ -45,7 +45,7 @@ class FormInput extends React.Component {
         return (
             <div className="note-input">
                 <h2 className="note-input__title">Buat catatan</h2>
-                <form className="note-input__body" onSubmit={this.onAddNoteEventHandler}>
+                <form className="note-input__body" onSubmit={this.onSubmitEventHandler}>
                     <p className="note-input__title__char-limit">Sisa karakter: {this.state.limitChar}</p>
                     <input type="text" placeholder="Judul catatan..." value={this.state.title} onChange={this.onTitleChangeHandler}/>
                     <textarea type="text" placeholder="Isi catatan..." value={this.state.body} onChange={this.onBodyChangeHandler}/>
