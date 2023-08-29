@@ -9,11 +9,21 @@ class MainPage extends React.Component {
         super(props);
         this.state = {
             notes: getInitialData(),
+            search: '',
         }
 
         this.onAddNoteEventHandler = this.onAddNoteEventHandler.bind(this);
         this.onDeleteEventHandler = this.onDeleteEventHandler.bind(this);
-        this.onArchiveEventHandler = this.onArchiveEventHandler.bind(this)
+        this.onArchiveEventHandler = this.onArchiveEventHandler.bind(this);
+        this.onSearchHandler = this.onSearchHandler.bind(this)
+    }
+
+    onSearchHandler() {
+        this.setState(() => {
+            return {
+                search : event.target.value,
+            };
+        });
     }
 
     onAddNoteEventHandler({title, body}) {
@@ -35,21 +45,22 @@ class MainPage extends React.Component {
     }
 
     onDeleteEventHandler(id) {
-        const notes = this.state.notes.filter(note => note.id !== id);
+        const notes = this.state.notes.filter((note) => note.id !== id);
         this.setState({ notes })
     }
 
     onArchiveEventHandler(id) {
-        const notes = this.state.notes.map(note => (note.id === id ? { ...note, archived: !note.archived} : note));
+        const notes = this.state.notes.map((note) => (note.id === id ? { ...note, archived: !note.archived} : note));
         this.setState({notes})
     }
 
     render() {
-        const archivedNotes = this.state.notes.filter(note=> note.archived === true)
-        const activedNotes = this.state.notes.filter(note=> note.archived === false)
+        const notes = this.state.notes.filter(note=> note.title.toLocaleLowerCase().includes(this.state.search.toLocaleLowerCase()));
+        const archivedNotes = notes.filter(note=> note.archived === true);
+        const activedNotes = notes.filter(note=> note.archived === false);
         return (
             <div>
-                <Header/>
+                <Header search={this.state.search} onSearch={this.onSearchHandler}/>
                 <div className="note-app__body">
                     <FormInput addNotes={this.onAddNoteEventHandler}/>
                     <h2>Catatan Aktif</h2>
