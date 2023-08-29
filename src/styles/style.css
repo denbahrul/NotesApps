@@ -5,22 +5,28 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #202124;
+  font-family: "Inter", sans-serif;
+  background-color: #18191b;
   color: white;
 }
 
-input, textarea {
+input,
+textarea {
   padding: 12px;
   margin: 12px 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: transparent;
   color: white;
   border: 1px solid #aaa;
   border-radius: 4px;
 }
 
-input::placeholder, textarea::placeholder {
+textarea {
+  height: 150px;
+}
+
+input::placeholder,
+textarea::placeholder {
   color: #aaa;
   font-weight: bold;
 }
@@ -39,6 +45,9 @@ input::placeholder, textarea::placeholder {
   color: white;
 }
 
+.note-app_search {
+  width: 25%;
+}
 
 .note-app__body {
   max-width: 1000px;
@@ -57,7 +66,10 @@ input::placeholder, textarea::placeholder {
   margin-bottom: 48px;
 }
 
-.note-input input, .note-input textarea {
+.note-input input,
+.note-input textarea {
+  background-color: #111113;
+  border: 1px solid #3b3e42;
   display: block;
   width: 100%;
 }
@@ -80,13 +92,19 @@ input::placeholder, textarea::placeholder {
   display: block;
   width: 100%;
   padding: 8px;
-  background-color: transparent;
-  font-family: 'Inter', sans-serif;
+  background-color: #111113;
+  font-family: "Inter", sans-serif;
   color: white;
-  border: 1px solid #aaa;
+  border: 1px solid #3b3e42;
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.note-input button:hover {
+  color: green;
+  background-color: #202124;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.75);
 }
 
 .notes-list {
@@ -103,8 +121,10 @@ input::placeholder, textarea::placeholder {
 }
 
 .note-item {
-  border: 1px solid #aaa;
+  border: 1px solid #3b3e42;
   border-radius: 4px;
+  background-color: #202124;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.75);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -136,25 +156,31 @@ input::placeholder, textarea::placeholder {
   display: flex;
 }
 
-.note-item__delete-button,.note-item__archive-button {
+.note-item__delete-button,
+.note-item__archive-button,
+.note-item__move-button {
   display: block;
   width: 100%;
   background-color: transparent;
   border: 0;
-  border-top: 1px solid #aaa;
+  border-top: 1px solid #3b3e42;
   padding: 8px 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: bold;
   cursor: pointer;
 }
 
 .note-item__delete-button {
-  border-right: 1px solid #aaa;
+  border-right: 1px solid #3b3e42;
   color: #ff5f52;
 }
 
 .note-item__archive-button {
   color: #fff263;
+}
+
+.note-item__move-button {
+  color: green;
 }
 
 .note-item__archive-button:hover {
@@ -163,6 +189,10 @@ input::placeholder, textarea::placeholder {
 
 .note-item__delete-button:hover {
   color: #b00020;
+}
+
+.note-item__move-button:hover {
+  color: rgb(1, 99, 1);
 }
 
 @media only screen and (min-width: 500px) {
@@ -178,6 +208,8 @@ input::placeholder, textarea::placeholder {
 
   .note-search input {
     min-width: 400px;
+    background-color: #111113;
+    border: 1px solid #3b3e42;
   }
 }
 
