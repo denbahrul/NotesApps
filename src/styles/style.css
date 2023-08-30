@@ -31,6 +31,11 @@ textarea::placeholder {
   font-weight: bold;
 }
 
+.link {
+  color: white;
+  text-decoration: none;
+}
+
 .note-app__header {
   display: flex;
   align-items: center;
@@ -43,10 +48,18 @@ textarea::placeholder {
   margin: 8px 0;
   flex: 1;
   color: white;
+  text-decoration:none ;
+}
+
+.note-app_navigasi {
+  display: flex;
+  gap: 25px;
+  font-size:larger;
+  font-weight: bold;
 }
 
 .note-app_search {
-  width: 25%;
+  width: 100%;
 }
 
 .note-app__body {
@@ -122,7 +135,8 @@ textarea::placeholder {
 
 .note-item {
   border: 1px solid #3b3e42;
-  border-radius: 4px;
+  border-top: 5px solid #3b3e42;
+  border-radius: 8px;
   background-color: #202124;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.75);
   overflow: hidden;
@@ -181,6 +195,11 @@ textarea::placeholder {
 
 .note-item__move-button {
   color: green;
+}
+
+.link-detail {
+  color: green;
+  text-decoration: none;
 }
 
 .note-item__archive-button:hover {

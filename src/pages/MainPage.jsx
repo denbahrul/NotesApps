@@ -1,14 +1,14 @@
 import React from "react";
-import Header from "./Header";
-import FormInput from "./FormInput";
-import NoteList from "./NotesList";
-import { getInitialData } from "../utils";
+import Header from "../components/Header";
+import FormInput from "../components/FormInput";
+import NoteList from "../components/NotesList";
+import { getAllNotes } from "../utils/local-data";
 
 class MainPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: getInitialData(),
+            notes: getAllNotes(),
             search: '',
         }
 
